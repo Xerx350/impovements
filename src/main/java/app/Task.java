@@ -51,6 +51,11 @@ public class Task {
     private static final int POINT_SIZE = 3;
 
     /**
+     * коэффициент колёсика мыши
+     */
+    private static final float WHEEL_SENSITIVE = 0.001f;
+
+    /**
      * последняя СК окна
      */
     protected CoordinateSystem2i lastWindowCS;
@@ -295,5 +300,19 @@ public class Task {
             }
         }
         canvas.restore();
+    }
+
+    /**
+     * Масштабирование области просмотра задачи
+     *
+     * @param delta  прокрутка колеса
+     * @param center центр масштабирования
+     */
+    public void scale(float delta, Vector2i center) {
+        if (lastWindowCS == null) return;
+        // получаем координаты центра масштабирования в СК задачи
+        Vector2d realCenter = ownCS.getCoords(center, lastWindowCS);
+        // выполняем масштабирование
+        ownCS.scale(1 + delta * WHEEL_SENSITIVE, realCenter);
     }
 }
