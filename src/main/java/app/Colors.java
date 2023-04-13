@@ -60,11 +60,22 @@ public class Colors {
     /**
      * Цвет подложки
      */
+
     public static final int STATS_COLOR = Misc.getColor(255, 51, 200, 51);
     /**
      * Цвет текста
      */
     public static final int STATS_TEXT_COLOR = Misc.getColor(255, 255, 255, 255);
+
+    /**
+     * Цвет текста
+     */
+
+    public static final int HELP_TEXT = Misc.getColor(255, 255, 255, 255);
+    /**
+     * Цвет фона
+     */
+    public static final int HELP_TEXT_BACKGROUND = Misc.getColor(50, 0, 0, 0);
 
     /**
      * Запрещённый конструктор
